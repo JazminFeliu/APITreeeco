@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Poppins:wght@100;300;400;500&display=swap');
+:root{
+    --yellow:#666;
+    --blue:#49858b;
+    --green:#587942;
+    --light_grey:rgb(136, 123, 123);
+    --grey: rgba(0.4,4.3,9.0,.1);
+    --black:#00000;
+    --white:#fff;
+}
+
+*{
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.container{
+    max-width: 1200px;
+}
+
+.display-1{
+    letter-spacing: 1px;
+}
+
+.bg-green{
+    background-color: var(--green) !important;
+}
+
+.bg-grey{
+    background-color: var(--white);
+}
+
+.text-green{
+    color:var(--green);
+}
+
+.btn{
+    border: 2px solid var(--white);
+    border-radius: 1.5rem;
+    padding: 0.6rem 0;
+    width: 160px;
+}
+
+.btn-green{
+    background-color: var(--green);
+    color:var(--white);
+    padding: 0.55rem 0;
+    width: 140px;
+}
+
+.btn-green:hover{
+    color:var(--green);
+    background:var(--white);
+    border-color: var(--green);
+}
+
+.lh-lg{
+    line-height: 1.7 !important;
+}
+
+.circle-icon{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
+
+header{
+    height: 100vh;
+}
+
+.navbar-brand .fa{
+    font-size: 1.3rem;
+}
+
+.nav-icons p{
+    font-size: 1rem;
+    margin-right: 0.6rem;
+}
+
+.nav-icons{
+    font-size: 1.2rem;
+}
+
+.btn-header:hover{
+    background-color: var(--white);
+    color: var(--green) !important;
+}
+
+ #carouselExample .carousel-item img{
+    width: 600px!important;
+    
+}
+
+#sec-6{
+    background: linear-gradient(#96791a,#587942), url(/TREEECO\ PAGE/version9Bootstrap/images/eco4.jpg) center/cover no-repeat;
+}
+
+#sec-6 .circle-icon{
+    width: 95px;
+    height: 95px;
+}
+
+#sec-7 .card{
+    border:none;
+}
+
+#sec-8 .carousel-item img{
+    width: 200px !important;
+}
+
+.pricing-item{
+    border-radius: 0.3rem;
+    overflow: hidden;
+    max-width: 340px;
+}
+
+.pricing-title{
+    background-color: var(--green);
+}
+
+.pricing-price, .pricing-item ul li{
+    border-bottom: 1px solid var(--white);
+    padding: 0.9rem 0;
+}
+
+.pricing-item .btn:hover{
+    background-color: transparent !important;
+    color: var(--white);
+}
+
+.social-icons{
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons i{
+    
+    color:gold !important;
+    
+    opacity: .5;
+    transition: color .5s;
+}
+.social-icons i:hover,
+.social-icons i:focus{
+    color: black!important;
+}
+
+
+
+
+
