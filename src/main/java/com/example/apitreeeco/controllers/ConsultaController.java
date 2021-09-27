@@ -11,15 +11,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("consultas")
 @Controller
-public class ConsultaController implements ErrorController{
-
+public class ConsultaController {
 
     @Autowired
     private ConsultaService consultaService;
 
-    @GetMapping
+    @GetMapping("/")
+    public String inicio(){
+        return "index";
+    }
+
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
+
+
+    @GetMapping("/blog")
+    public String blog(){
+        return "blog";
+    }
+
+    @GetMapping("consultas")
+    public String mostrasUnaSola(Model modelo){
+        List<Consulta>consultas = consultaService.getConsultas();
+
+        modelo.addAttribute("id",consultas.get(0).getConsulta_id());
+        modelo.addAttribute("nombre", consultas.get(0).getNombre());
+        modelo.addAttribute("apellido", consultas.get(0).getApellido());
+        modelo.addAttribute("email", consultas.get(0).getEmail());
+        modelo.addAttribute("telefono", consultas.get(0).getTelefono());
+        modelo.addAttribute("texto", consultas.get(0).getTexto());
+        return "ver-consultas";
+
+    }
+
+    @GetMapping("/consultastodas")
     public String getConsultas(Model modelo) {
         modelo.addAttribute("nombres", consultaService.getNombres());
         modelo.addAttribute("apellidos", consultaService.getApellidos());
@@ -29,7 +57,7 @@ public class ConsultaController implements ErrorController{
         return "ver-consultas";
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("consultas/buscar")
     public String buscar(@RequestParam Optional<String> nombreORid, @RequestParam Optional<String>apellido, @RequestParam Optional<String>email, @RequestParam Optional<String>telefono){
         if(apellido.isPresent() && !apellido.get().equals("0"))
             return "redirect:/consultas/apellido/"+apellido.get();

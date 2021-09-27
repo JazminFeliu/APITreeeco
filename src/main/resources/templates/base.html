@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TREEECO PAGE</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/estilos.css" media="all">
+</head>
+<body>
+<header class="mb-5 overflow-hidden " th:fragment="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index">
+                    <img src="images/LOGO2.jpg" alt="TREEECO" width="90" height="90" class="d-inline-block align-center">TREEECO
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec-2">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec-3">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sec-4">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<footer class="pt-4 pb-4  mb-5 " th:fragment="footer">
+    <div class="container-fluid">
+        <div class="row text-center align-items-center ">
+            <div class="col-12 col-sm-6 col-md-4 text-sm-start">
+                <a class="navbar-brand" href="index">
+                    <img src="images/LOGO2.jpg" alt="TREEECO" width="90" weight="90" class="d-inline-block align-center">
+                </a>
+            </div>
+            <div
+                    class="col-12 col-sm-6 col-md-4 mt-4 mt-sm-0 text-center text-sm-end text-md-center">
+                © 2021 TREEECO
+            </div>
+            <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-end">
+
+                <a href="https://www.facebook.com/TreeEco-Argentina-102238341268657">
+                    <i class="fab fa-facebook" ></i>
+                </a>&nbsp;&nbsp;
+                <a href="https://www.instagram.com/treeeco.siar.corredor">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>&nbsp;&nbsp;
+                <a href="https://www.youtube.com/channel/UC2BpxJym40BkKdh5J33bAeQ">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
