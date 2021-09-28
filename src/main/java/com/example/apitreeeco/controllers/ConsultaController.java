@@ -27,11 +27,21 @@ public class ConsultaController {
         return "index";
     }
 
+    @GetMapping("/productos")
+    public String productos(){
+        return "productos";
+    }
+
+    @GetMapping("/servicios")
+    public String servicios(){
+        return "servicios";
+    }
 
     @GetMapping("/blog")
     public String blog(){
         return "blog";
     }
+
 
     @GetMapping("consultas")
     public String mostrasUnaSola(Model modelo){
@@ -127,7 +137,7 @@ public class ConsultaController {
         return "ver-consultas";
     }
 
-    @GetMapping("/nuevo")
+    @GetMapping("/contacto")
     public String newConsulta(Model modelo){
         modelo.addAttribute("consulta", new Consulta());
         return "contacto";
