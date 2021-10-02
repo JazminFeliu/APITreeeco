@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class ConsultaController {
+public class ConsultaController implements ErrorController{
 
     @Autowired
     private ConsultaService consultaService;
