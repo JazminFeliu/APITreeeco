@@ -42,6 +42,11 @@ public class ConsultaController implements ErrorController{
         return "blog";
     }
 
+    @GetMapping("/enviado")
+    public String enviado()
+    {
+        return "enviado";
+    }
 
     @GetMapping("consultas")
     public String mostrasUnaSola(Model modelo){
