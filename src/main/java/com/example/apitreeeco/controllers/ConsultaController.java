@@ -27,10 +27,11 @@ public class ConsultaController implements ErrorController{
         return "index";
     }
 
-    @GetMapping("/productos")
-    public String productos(){
-        return "productos";
-    }
+
+    //@GetMapping("/productos")
+    //public String productos(){
+     //   return "productos";
+    //}
 
     @GetMapping("/servicios")
     public String servicios(){

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="base :: head"></head>
+<body>
+
+<header th:replace="base :: header"></header>
+
+<h2>Todos los productos</h2>
+
+<form class="formBuscar" id="formBuscar" method="get" action="/productos/buscar">
+  <div>Buscar por nombre o ID:</div><br />
+  <input type="search" placeholder="Buscar por nombre o ID" name="nombreORid">
+  <input type="range" value="0" min="0" max="500" step="1" id="buscarPuntos" name="puntos" />
+  <span id="puntosValor"></span>
+
+  <select class="form-control" name="categoria">
+    <option value="0" text="Buscar por categoria" selected />
+    <option th:each="categoria : ${categorias}" th:value="${categoria}" th:text="${categoria}"></option>
+  </select>
+
+  <br /><br />
+  <a href="#" id="buscarBtn" class="boton azul">Buscar</a>
+  <a href="/productos/nuevo" class="boton azul">Crear nuevo</a>
+  <a href="/productos" class="boton azul">Ver todos</a>
+
+  <style>
+    body{
+      background-image: url(/images/SIAR1024.jpg);
+      background-size: cover;
+    }
+    hr{
+      background: white;
+    }
+    .form-control{
+      position: relative;
+      border: 1px solid #ccc;
+      width: 120px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .form-control:before {
+      content: '';
+      position: absolute;
+      right: 5px;
+      top: 7px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7px 5px 0 5px;
+      border-color: #000000 transparent transparent transparent;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .select select {
+      padding: 5px 8px;
+      width: 130%;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      background-image: none;
+      appearance: none;
+    }
+
+    .formBuscar, .table-wrapper{
+      background: rgba(0,0,0,.6);
+      color:darkgrey;
+      margin-top: 100px;
+      padding: 20px;
+      box-shadow: 0px 0px 5px 2px grey;
+    }
+  </style>
+
+</form>
+<br />
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+    <tr>
+      <th>ID producto</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Categoria</th>
+      <th>Puntos</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Unidad</th>
+      <th>Editar</th>
+      <th>Borrar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${productos.isEmpty()}">
+      <td colspan="10"> No se encontraron productos </td>
+    </tr>
+    <tr th:each="producto : ${productos}">
+      <td th:id="'producto'+${producto.getProducto_id()}"><span th:text="${producto.getProducto_id()}"> ID producto </span></td>
+      <td><span th:text="${producto.getNombre()}"> Nombre </span></td>
+      <td><span th:text="${producto.getDescripcion()}"> Descripción </span></td>
+      <td><span th:text="${producto.getCategoria()}"> Categoría </span></td>
+      <td><span th:text="${producto.getPuntos()}"> Puntos </span></td>
+      <td><span th:text="${producto.getCantidad()}"> Cantidad </span></td>
+      <td><span th:text="${producto.getPrecio()}"> Precio </span></td>
+      <td><span th:text="${producto.getUnidad()}"> Unidad </span></td>
+      <td><a href="#" class="icono editar" th:id="${producto.getProducto_id()}"><i class="icon-pencil" title="Editar"></i></a></td>
+      <td><a href="#" class="icono borrar" th:id="${producto.getProducto_id()}"><i class="icon-trash" title="Borrar"></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+<script>
+
+  $(".editar").click(function(){
+    $(location).attr('href','/productos/editar/'+this.id);
+  });
+
+
+  $(".borrar").click(function(){
+    var itemID = $(this).attr("id");
+    $.ajax({
+      url: '/productos/borrar/'+itemID,
+      type: 'DELETE',
+      complete: function(data){
+        $("#producto"+itemID).parent().slideUp("slow");
+      }
+    });
+  });
+
+
+  $("#buscarPuntos").on('input',function(){
+    $("#puntosValor").text("0 - "+$("#buscarPuntos").val());
+  });
+
+  $("#buscarBtn").click(function(){
+    $("#formBuscar").submit();
+  });
+</script>
+
+</html>

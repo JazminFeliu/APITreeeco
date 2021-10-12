@@ -23,7 +23,7 @@ public class Consulta {
     }
 
     public Integer getConsulta_id(){
-        return  consulta_id;
+        return consulta_id;
     }
 
     public void setConsulta_id(Integer consulta_id){
