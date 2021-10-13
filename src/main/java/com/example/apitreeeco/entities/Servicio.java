@@ -3,7 +3,6 @@ package com.example.apitreeeco.entities;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name = "servicios")
@@ -12,7 +11,7 @@ public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "incrementDomain")
     @GenericGenerator(name = "incrementDomain", strategy = "increment")
-    private Integer ServicioId;
+    private Integer servicio_id;
     private String nombre;
     private String descripcion;
     private String categoria;
@@ -24,8 +23,8 @@ public class Servicio {
     public Servicio() {
     }
 
-    public Servicio(Integer servicioId, String nombre, String descripcion, String categoria, Integer puntos, Double cantidad, Double precio, String unidad) {
-        ServicioId = servicioId;
+    public Servicio(Integer servicio_id, String nombre, String descripcion, String categoria, Integer puntos, Double cantidad, Double precio, String unidad) {
+        this.servicio_id = servicio_id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;
@@ -45,12 +44,12 @@ public class Servicio {
         this.unidad = unidad;
     }
 
-    public Integer getServicioId() {
-        return ServicioId;
+    public Integer getServicio_id() {
+        return servicio_id;
     }
 
-    public void setServicioId(Integer servicioId) {
-        ServicioId = servicioId;
+    public void setServicio_id(Integer servicio_id) {
+        this.servicio_id = servicio_id;
     }
 
     public String getNombre() {

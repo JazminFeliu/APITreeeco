@@ -5,9 +5,9 @@
 
 <header th:replace="base :: header"></header>
 
-<h2>Todos los productos</h2>
+<h2>Todos los Servicios</h2>
 
-<form class="formBuscar" id="formBuscar" method="get" action="/productos/buscar">
+<form class="formBuscar" id="formBuscar" method="get" action="/servicios/buscar">
   <div>Buscar por nombre o ID:</div><br />
   <input type="search" placeholder="Buscar por nombre o ID" name="nombreORid">
   <input type="range" value="0" min="0" max="500" step="1" id="buscarPuntos" name="puntos" />
@@ -20,16 +20,20 @@
 
   <br /><br />
   <a href="#" id="buscarBtn" class="boton azul">Buscar</a>
-  <a href="/productos/nuevo" class="boton azul">Crear nuevo</a>
-  <a href="/productos" class="boton azul">Ver todos</a>
+  <a href="/servicios/nuevo" class="boton azul">Crear nuevo</a>
+  <a href="/servicios" class="boton azul">Ver todos</a>
 
   <style>
     body{
-      background-image: url(/images/SIAR1024.jpg);
+      background-image: url(/images/DSC_0003.JPG);
       background-size: cover;
     }
     hr{
       background: white;
+    }
+
+    h2{
+      color: white;
     }
     .form-control{
       position: relative;
@@ -65,7 +69,7 @@
 
     .formBuscar, .table-wrapper{
       background: rgba(0,0,0,.6);
-      color:black;
+      color: #666666;
       margin-top: 50px;
       padding: 20px;
       box-shadow: 0px 0px 5px 2px grey;
@@ -78,7 +82,7 @@
   <table class="fl-table">
     <thead>
     <tr>
-      <th>ID producto</th>
+      <th>ID Servicio</th>
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Categoria</th>
@@ -91,20 +95,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${productos.isEmpty()}">
-      <td colspan="10"> No se encontraron productos </td>
+    <tr th:if="${servicios.isEmpty()}">
+      <td colspan="10"> No se encontraron servicios </td>
     </tr>
-    <tr th:each="producto : ${productos}">
-      <td th:id="'producto'+${producto.getProducto_id()}"><span th:text="${producto.getProducto_id()}"> ID producto </span></td>
-      <td><span th:text="${producto.getNombre()}"> Nombre </span></td>
-      <td><span th:text="${producto.getDescripcion()}"> Descripción </span></td>
-      <td><span th:text="${producto.getCategoria()}"> Categoría </span></td>
-      <td><span th:text="${producto.getPuntos()}"> Puntos </span></td>
-      <td><span th:text="${producto.getCantidad()}"> Cantidad </span></td>
-      <td><span th:text="${producto.getPrecio()}"> Precio </span></td>
-      <td><span th:text="${producto.getUnidad()}"> Unidad </span></td>
-      <td><a href="#" class="icono editar" th:id="${producto.getProducto_id()}"><i class="icon-pencil" title="Editar"></i></a></td>
-      <td><a href="#" class="icono borrar" th:id="${producto.getProducto_id()}"><i class="icon-trash" title="Borrar"></i></a></td>
+    <tr th:each="servicio : ${servicios}">
+      <td th:id="'servicio'+${servicio.getServicio_id()}"><span th:text="${servicio.getServicio_id()}"> ID Servicio </span></td>
+      <td><span th:text="${servicio.getNombre()}"> Nombre </span></td>
+      <td><span th:text="${servicio.getDescripcion()}"> Descripción </span></td>
+      <td><span th:text="${servicio.getCategoria()}"> Categoría </span></td>
+      <td><span th:text="${servicio.getPuntos()}"> Puntos </span></td>
+      <td><span th:text="${servicio.getCantidad()}"> Cantidad </span></td>
+      <td><span th:text="${servicio.getPrecio()}"> Precio </span></td>
+      <td><span th:text="${servicio.getUnidad()}"> Unidad </span></td>
+      <td><a href="#" class="icono editar" th:id="${servicio.getServicio_id()}"><i class="icon-pencil" title="Editar"></i></a></td>
+      <td><a href="#" class="icono borrar" th:id="${servicio.getServicio_id()}"><i class="icon-trash" title="Borrar"></i></a></td>
     </tr>
     </tbody>
   </table>
@@ -114,17 +118,17 @@
 <script>
 
   $(".editar").click(function(){
-    $(location).attr('href','/productos/editar/'+this.id);
+    $(location).attr('href','/servicios/editar/'+this.id);
   });
 
 
   $(".borrar").click(function(){
     var itemID = $(this).attr("id");
     $.ajax({
-      url: '/productos/borrar/'+itemID,
+      url: '/servicios/borrar/'+itemID,
       type: 'DELETE',
       complete: function(data){
-        $("#producto"+itemID).parent().slideUp("slow");
+        $("#servicio"+itemID).parent().slideUp("slow");
       }
     });
   });

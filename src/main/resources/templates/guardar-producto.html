@@ -11,7 +11,7 @@
 <div class="registration-form">
   <form action="/productos/guardar" method="post">
     <div class="form-icon">
-      <span><i class="icon icon-ghost"></i></span>
+      <span><i class="icon icon-note"></i></span>
     </div>
     <div th:if="${producto.getNombre() == null}">Nuevo Producto</div>
     <div th:unless="${producto.getNombre() == null}">Editar Producto</div>

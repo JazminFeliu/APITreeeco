@@ -33,10 +33,10 @@ public class ConsultaController implements ErrorController{
      //   return "productos";
     //}
 
-    @GetMapping("/servicios")
+    /*@GetMapping("/servicios")
     public String servicios(){
         return "servicios";
-    }
+    }*/
 
     @GetMapping("/blog")
     public String blog(){
