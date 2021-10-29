@@ -19,7 +19,7 @@ public class ConsultaController implements ErrorController{
 
     @GetMapping("/")
     public String inicio(){
-        return "index";
+      return "index";
     }
 
     @GetMapping("/index")
